@@ -4,10 +4,22 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="TB_LIVRO")
-public class Biblioteca {
+public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "codigo")
     private Integer id;
 
-    @Column()
+    @Column(name="titulo")
+    private String titulo;
+
+    @Column(name = "autor")
+    private String autor;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria")
+    private Categoria categoria;
+
+    @Column(name = "status")
+    private Boolean status;
 }
