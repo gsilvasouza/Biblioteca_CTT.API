@@ -18,7 +18,8 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "categoria")
+    //Unique seta que aquela coluna deve ser unica
+    @Column(name = "categoria", unique = true)
     private String categoria;
 
     @OneToMany(mappedBy = "categoria")
