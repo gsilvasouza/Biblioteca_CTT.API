@@ -17,13 +17,13 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column("nome")
+    @Column(name = "nome")
     private String nome;
 
-    @Column("email")
+    @Column(name = "email")
     private String email;
 
-    @Column("telefone")
+    @Column(name = "telefone")
     private String telefone;
 
     @Column(name = "CPF", unique = true)
