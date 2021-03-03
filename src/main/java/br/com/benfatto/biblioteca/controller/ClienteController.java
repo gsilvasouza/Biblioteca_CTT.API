@@ -5,7 +5,6 @@ import br.com.benfatto.biblioteca.dto.CreateClienteDTO;
 import br.com.benfatto.biblioteca.dto.ListClienteDTO;
 import br.com.benfatto.biblioteca.mapper.ClienteMapper;
 import br.com.benfatto.biblioteca.model.Cliente;
-import br.com.benfatto.biblioteca.repository.ClienteRepository;
 import br.com.benfatto.biblioteca.service.ClienteService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
