@@ -4,6 +4,7 @@ import br.com.benfatto.biblioteca.dto.CreateLivroDTO;
 import br.com.benfatto.biblioteca.dto.ListLivroDTO;
 import br.com.benfatto.biblioteca.dto.LivroDTO;
 import br.com.benfatto.biblioteca.mapper.LivroMapper;
+import br.com.benfatto.biblioteca.model.Categoria;
 import br.com.benfatto.biblioteca.model.Livro;
 import br.com.benfatto.biblioteca.service.CategoriaService;
 import br.com.benfatto.biblioteca.service.LivroService;
@@ -68,4 +69,31 @@ public class LivroController {
         return new ResponseEntity<>("Resource removed", HttpStatus.OK);
     }
 
+    @GetMapping("/categoria/{categoria}")
+    public ResponseEntity<ListLivroDTO>  foundAllByCategoria(@PathVariable String categoria){
+        Categoria foundCategoria = this.categoriaService.findByCategoria(categoria);
+        List<LivroDTO> founds = this.livroService.findAllByCategoria(foundCategoria)
+                .stream()
+                .map(this.livroMapper::mapToDTO)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(new ListLivroDTO(founds), HttpStatus.FOUND);
+    }
+
+    @GetMapping("/autor/{autor}")
+    public ResponseEntity<ListLivroDTO>  foundAllByAutor(@PathVariable String autor){
+        List<LivroDTO> founds = this.livroService.findAllByAutor(autor)
+                .stream()
+                .map(this.livroMapper::mapToDTO)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(new ListLivroDTO(founds), HttpStatus.FOUND);
+    }
+
+    @GetMapping("/titulo/{titulo}")
+    public ResponseEntity<ListLivroDTO>  foundAllByTitulo(@PathVariable String titulo){
+        List<LivroDTO> founds = this.livroService.findAllByTitulo(titulo)
+                .stream()
+                .map(this.livroMapper::mapToDTO)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(new ListLivroDTO(founds), HttpStatus.FOUND);
+    }
 }
