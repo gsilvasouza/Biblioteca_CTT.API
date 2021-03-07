@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter(AccessLevel.PUBLIC)
 public class CreateClienteDTO {
     private String nome;
+    private String CPF;
     private String email;
     private String telefone;
-    private String CPF;
 }
