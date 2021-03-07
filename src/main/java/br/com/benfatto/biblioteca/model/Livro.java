@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter(AccessLevel.PUBLIC)
@@ -30,4 +31,7 @@ public class Livro {
 
     @Column(name = "status")
     private Boolean status;
+
+    @OneToMany(mappedBy = "livro")
+    public List<Servicos> servicos;
 }

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter(AccessLevel.PUBLIC)
@@ -29,4 +30,6 @@ public class Cliente {
     @Column(name = "CPF", unique = true)
     private String CPF;
 
+    @OneToMany(mappedBy = "cliente")
+    public List<Servicos> servicos;
 }
